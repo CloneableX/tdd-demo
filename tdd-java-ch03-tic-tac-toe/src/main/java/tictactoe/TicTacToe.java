@@ -2,6 +2,7 @@ package tictactoe;
 
 public class TicTacToe {
     private Character[][] board;
+    private char lastestPlayer;
 
     public TicTacToe() {
         board = new Character[][]{{'\0', '\0', '\0'}, {'\0', '\0', '\0'}, {'\0', '\0', '\0'}};
@@ -12,12 +13,20 @@ public class TicTacToe {
             throw new RuntimeException("Point is occupied");
         }
 
-        board[x - 1][y - 1] = 'X';
+        lastestPlayer = nextPlayer();
+        board[x - 1][y - 1] = lastestPlayer;
     }
 
     public void play(Point point) {
         point.checkXAxis();
         point.checkYAxis();
         storePoint(point.getX(), point.getY());
+    }
+
+    public char nextPlayer() {
+        if (lastestPlayer == 'X') {
+            return 'O';
+        }
+        return 'X';
     }
 }
