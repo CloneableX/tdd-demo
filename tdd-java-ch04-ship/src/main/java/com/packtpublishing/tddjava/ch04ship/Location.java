@@ -121,4 +121,8 @@ public class Location {
         if (direction != location.direction) return false;
         return true;
     }
+
+    public void setPoint(Point point) {
+        this.point = point;
+    }
 }
