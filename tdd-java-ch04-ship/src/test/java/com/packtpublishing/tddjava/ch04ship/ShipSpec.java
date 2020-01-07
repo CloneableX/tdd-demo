@@ -23,10 +23,16 @@ public class ShipSpec {
     }
 
 
-    public void should_go_forward_when_forward_given_east_ship() {
-        Point expected = new Point(initPoint.getX() + 1, initPoint.getY());
-        Location location = ship.forward();
+    public void should_go_forward_when_action_forward_given_east_ship() {
+        Point expectedPoint = new Point(initPoint.getX() + 1, initPoint.getY());
+        ship.action(Command.Forward);
 
-        assertEquals(location.getPoint(), expected);
+        assertEquals(ship.getLocation().getPoint(), expectedPoint);
+    }
+
+    public void should_go_back_when_action_back_given_east_ship() {
+        Point expectPoint = new Point(initPoint.getX() - 1, initPoint.getY());
+        ship.action(Command.Back);
+        assertEquals(ship.getLocation().getPoint(), expectPoint);
     }
 }

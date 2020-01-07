@@ -22,4 +22,12 @@ public class Ship {
         location.setPoint(point);
         return location;
     }
+
+    public void action(Command command) {
+        if (command.equals(Command.Forward)) {
+            location.forward();
+        } else if (command.equals(Command.Back)) {
+            location.backward();
+        }
+    }
 }
