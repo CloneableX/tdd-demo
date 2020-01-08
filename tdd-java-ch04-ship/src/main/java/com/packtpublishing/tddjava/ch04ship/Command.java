@@ -1,7 +1,10 @@
 package com.packtpublishing.tddjava.ch04ship;
 
 public enum Command {
-    Forward("f", "forward"), Back("b", "back"), TurnLeft("l", "turn left");
+    Forward("f", "forward"),
+    Back("b", "back"),
+    TurnLeft("l", "turn left"),
+    TurnRight("r", "turn right");
 
     private final String shortName;
     private final String name;

@@ -40,4 +40,9 @@ public class ShipSpec {
         ship.action(Command.TurnLeft);
         assertEquals(ship.getLocation().getDirection(), Direction.NORTH);
     }
+
+    public void should_direction_south_when_turn_right_given_east_ship() {
+        ship.action(Command.TurnRight);
+        assertEquals(ship.getLocation().getDirection(), Direction.SOUTH);
+    }
 }

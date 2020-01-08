@@ -30,6 +30,8 @@ public class Ship {
             location.backward();
         } else if (command.equals(Command.TurnLeft)) {
             location.turnLeft();
+        } else if (command.equals(Command.TurnRight)) {
+            location.turnRight();
         }
     }
 }
