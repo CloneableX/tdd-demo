@@ -28,6 +28,8 @@ public class Ship {
             location.forward();
         } else if (command.equals(Command.Back)) {
             location.backward();
+        } else if (command.equals(Command.TurnLeft)) {
+            location.turnLeft();
         }
     }
 }
