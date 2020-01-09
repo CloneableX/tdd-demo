@@ -34,4 +34,12 @@ public class Ship {
             location.turnRight();
         }
     }
+
+    public void action(String commands) {
+        char[] commandStrings = commands.toCharArray();
+        for (char commandStr : commandStrings) {
+            Command command = Command.transCommand(String.valueOf(commandStr));
+            action(command);
+        }
+    }
 }

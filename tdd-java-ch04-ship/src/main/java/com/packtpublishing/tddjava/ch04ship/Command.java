@@ -1,5 +1,8 @@
 package com.packtpublishing.tddjava.ch04ship;
 
+import java.util.Arrays;
+import java.util.concurrent.ConcurrentMap;
+
 public enum Command {
     Forward("f", "forward"),
     Back("b", "back"),
@@ -12,5 +15,14 @@ public enum Command {
     Command(String shortName, String name) {
         this.shortName = shortName;
         this.name = name;
+    }
+
+    public static Command transCommand(String commandStr) {
+        Command[] values = Command.values();
+        return Arrays.stream(values).filter((Command command) -> command.shortName.equals(commandStr)).findFirst().get();
+    }
+
+    public String getShortName() {
+        return shortName;
     }
 }
