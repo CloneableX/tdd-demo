@@ -25,14 +25,14 @@ public class ShipSpec {
 
     public void should_x_plus_1_when_action_forward_given_east_ship() {
         Point expectedPoint = new Point(initPoint.getX() + 1, initPoint.getY());
-        ship.action("f");
+        ship.action(Command.Forward.getShortName());
 
         assertEquals(ship.getLocation().getPoint(), expectedPoint);
     }
 
     public void should_x_minus_1_when_action_back_given_east_ship() {
         Point expectPoint = new Point(initPoint.getX() - 1, initPoint.getY());
-        ship.action("f");
+        ship.action(Command.Back.getShortName());
         assertEquals(ship.getLocation().getPoint(), expectPoint);
     }
 
@@ -47,8 +47,8 @@ public class ShipSpec {
     }
 
     public void should_stay_origin_when_actions() {
-//        Location origin = ship.getLocation().copy();
-//        ship.actions("lrfb");
-//        assertEquals(origin, ship.getLocation());
+        Location origin = ship.getLocation().copy();
+        ship.action("lrfb");
+        assertEquals(origin, ship.getLocation());
     }
 }
