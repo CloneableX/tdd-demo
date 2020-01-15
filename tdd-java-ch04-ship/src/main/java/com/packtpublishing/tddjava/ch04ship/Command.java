@@ -1,7 +1,6 @@
 package com.packtpublishing.tddjava.ch04ship;
 
 import java.util.Arrays;
-import java.util.concurrent.ConcurrentMap;
 
 public enum Command {
     Forward("f", "forward"),
