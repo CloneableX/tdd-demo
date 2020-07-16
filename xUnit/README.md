@@ -1,6 +1,6 @@
 ## Task List
 
-- Invoke test method
+- <s>Invoke test method</s>
 - Invoke setUp first
 - Invoke tearDown afterward
 - Invoke tearDown even if the test method fails
