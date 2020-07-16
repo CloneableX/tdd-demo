@@ -2,19 +2,19 @@ package com.clo.xunit;
 
 public class WasRun extends TestCase {
     public Integer wasRun;
-    protected Integer wasSetUp;
+    public String log;
 
     public WasRun(String methodName) {
         super(methodName);
-        this.wasRun = null;
     }
 
     @Override
     public void setUp() {
-        wasSetUp = 1;
+        this.wasRun = null;
+        log = "setUp ";
     }
 
     public void testMethod() {
-        wasRun = 1;
+        log = log + "testMethod ";
     }
 }

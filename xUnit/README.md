@@ -6,3 +6,4 @@
 - Invoke tearDown even if the test method fails
 - Run multiple test
 - Report collected results
+- <s>Log string in WasRun</s>

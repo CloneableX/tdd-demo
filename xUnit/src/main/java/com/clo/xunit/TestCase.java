@@ -9,7 +9,7 @@ public class TestCase {
         this.methodName = methodName;
     }
 
-    public void setUp() {}
+    public void setUp() throws Exception {}
 
     public void run() throws Exception {
         setUp();
