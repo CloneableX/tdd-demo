@@ -17,7 +17,7 @@ public class TestCaseTest extends TestCase {
 
     public void testTemplateMethod() throws Exception {
         test.run();
-        assertThat(test.log, is("setUp testMethod "));
+        assertThat(test.log, is("setUp testMethod tearDown "));
     }
 
     public static void main(String[] args) throws Exception {

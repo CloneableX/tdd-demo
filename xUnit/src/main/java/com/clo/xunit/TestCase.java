@@ -9,11 +9,14 @@ public class TestCase {
         this.methodName = methodName;
     }
 
-    public void setUp() throws Exception {}
+    public void setUp() {}
+
+    public void tearDown() {}
 
     public void run() throws Exception {
         setUp();
         Method method = this.getClass().getMethod(methodName);
         method.invoke(this);
+        tearDown();
     }
 }
