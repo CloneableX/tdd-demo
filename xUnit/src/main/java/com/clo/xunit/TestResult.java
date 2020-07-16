@@ -8,7 +8,11 @@ public class TestResult {
         return runCounter + " run, " + failedCounter + " failed";
     }
 
-    public void increaseRunCounter() {
+    public void testStarted() {
         runCounter++;
+    }
+
+    public void testFailed() {
+        failedCounter++;
     }
 }

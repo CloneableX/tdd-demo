@@ -16,6 +16,10 @@ public class WasRun extends TestCase {
         log = log + "testMethod ";
     }
 
+    public void testBrokenMethod() {
+        throw new RuntimeException();
+    }
+
     @Override
     public void tearDown() {
         log = log + "tearDown ";

@@ -25,8 +25,15 @@ public class TestCaseTest extends TestCase {
         assertThat(result.summary(), is("1 run, 0 failed"));
     }
 
+    public void testFailedResult() throws Exception {
+        test = new WasRun("testBrokenMethod");
+        TestResult testResult = test.run();
+        assertThat(testResult.summary(), is("1 run, 1 failed"));
+    }
+
     public static void main(String[] args) throws Exception {
         new TestCaseTest("testTemplateMethod").run();
         new TestCaseTest("testResult").run();
+        new TestCaseTest("testFailedResult").run();
     }
 }
