@@ -5,7 +5,7 @@
 - <s>Invoke tearDown afterward</s>
 - Invoke tearDown even if the test method fails
 - Run multiple test
-- Report collected results
+- <s>Report collected results</s>
 - <s>collected test case number</s>
-- collected failed number
+- <s>collected failed number</s>
 - <s>Log string in WasRun</s>
