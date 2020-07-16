@@ -4,6 +4,7 @@ import java.lang.reflect.Method;
 
 public class TestCase {
     protected String methodName;
+    private TestResult testResult = new TestResult();
 
     public TestCase(String methodName) {
         this.methodName = methodName;
@@ -13,10 +14,12 @@ public class TestCase {
 
     public void tearDown() {}
 
-    public void run() throws Exception {
+    public TestResult run() throws Exception {
+        testResult.increaseRunCounter();
         setUp();
         Method method = this.getClass().getMethod(methodName);
         method.invoke(this);
         tearDown();
+        return testResult;
     }
 }

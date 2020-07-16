@@ -20,7 +20,13 @@ public class TestCaseTest extends TestCase {
         assertThat(test.log, is("setUp testMethod tearDown "));
     }
 
+    public void testResult() throws Exception {
+        TestResult result = test.run();
+        assertThat(result.summary(), is("1 run, 0 failed"));
+    }
+
     public static void main(String[] args) throws Exception {
         new TestCaseTest("testTemplateMethod").run();
+        new TestCaseTest("testResult").run();
     }
 }
