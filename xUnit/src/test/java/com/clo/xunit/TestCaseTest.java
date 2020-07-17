@@ -39,11 +39,19 @@ public class TestCaseTest extends TestCase {
         assertThat(testResult.summary(), is("2 run, 1 failed"));
     }
 
+    public void testRunTearDownWhenFailed() {
+        test = new WasRun("testBrokenMethod");
+        test.run(new TestResult());
+        assertThat(test.log, is("setUp tearDown "));
+    }
+
     public static void main(String[] args) {
-        TestResult testResult = new TestResult();
-        new TestCaseTest("testTemplateMethod").run(testResult);
-        new TestCaseTest("testResult").run(testResult);
-        new TestCaseTest("testFailedResult").run(testResult);
-        new TestCaseTest("testRunSuite").run(testResult);
+        TestSuite testSuite = new TestSuite();
+        testSuite.add(new TestCaseTest("testTemplateMethod"));
+        testSuite.add(new TestCaseTest("testResult"));
+        testSuite.add(new TestCaseTest("testFailedResult"));
+        testSuite.add(new TestCaseTest("testRunSuite"));
+        testSuite.add(new TestCaseTest("testRunTearDownWhenFailed"));
+        testSuite.run();
     }
 }

@@ -9,17 +9,21 @@ public class TestCase {
         this.methodName = methodName;
     }
 
-    public void setUp() {}
+    public void setUp() {
+    }
 
-    public void tearDown() {}
+    public void tearDown() {
+    }
 
     public TestResult run(TestResult testResult) {
         testResult.testStarted();
         setUp();
         try {
             Method method = this.getClass().getMethod(methodName);
+
             method.invoke(this);
         } catch (Exception e) {
+            e.printStackTrace();
             testResult.testFailed();
         }
         tearDown();
