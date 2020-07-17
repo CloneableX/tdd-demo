@@ -4,7 +4,7 @@
 - <s>Invoke setUp first</s>
 - <s>Invoke tearDown afterward</s>
 - Invoke tearDown even if the test method fails
-- Run multiple test
+- <s>Run multiple test</s>
 - <s>Report collected results</s>
 - <s>collected test case number</s>
 - <s>collected failed number</s>

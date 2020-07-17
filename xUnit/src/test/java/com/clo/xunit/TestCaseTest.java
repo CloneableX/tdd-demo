@@ -15,25 +15,35 @@ public class TestCaseTest extends TestCase {
         test = new WasRun("testMethod");
     }
 
-    public void testTemplateMethod() throws Exception {
-        test.run();
+    public void testTemplateMethod() {
+        test.run(new TestResult());
         assertThat(test.log, is("setUp testMethod tearDown "));
     }
 
-    public void testResult() throws Exception {
-        TestResult result = test.run();
+    public void testResult() {
+        TestResult result = test.run(new TestResult());
         assertThat(result.summary(), is("1 run, 0 failed"));
     }
 
-    public void testFailedResult() throws Exception {
+    public void testFailedResult() {
         test = new WasRun("testBrokenMethod");
-        TestResult testResult = test.run();
+        TestResult testResult = test.run(new TestResult());
         assertThat(testResult.summary(), is("1 run, 1 failed"));
     }
 
-    public static void main(String[] args) throws Exception {
-        new TestCaseTest("testTemplateMethod").run();
-        new TestCaseTest("testResult").run();
-        new TestCaseTest("testFailedResult").run();
+    public void testRunSuite() {
+        TestSuite testSuite = new TestSuite();
+        testSuite.add(new WasRun("testBrokenMethod"));
+        testSuite.add(new WasRun("testMethod"));
+        TestResult testResult = testSuite.run();
+        assertThat(testResult.summary(), is("2 run, 1 failed"));
+    }
+
+    public static void main(String[] args) {
+        TestResult testResult = new TestResult();
+        new TestCaseTest("testTemplateMethod").run(testResult);
+        new TestCaseTest("testResult").run(testResult);
+        new TestCaseTest("testFailedResult").run(testResult);
+        new TestCaseTest("testRunSuite").run(testResult);
     }
 }
